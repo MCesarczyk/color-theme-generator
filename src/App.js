@@ -1,22 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import { colorsCalculate } from './utils/colorsCalculate';
+import ColorPalette from './ColorPalette';
 
-function App() {
+const App = () => {
+  const primary = colorsCalculate();
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
         <a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Hold your colors
         </a>
+        <ColorPalette color={primary} />
       </header>
     </div>
   );
