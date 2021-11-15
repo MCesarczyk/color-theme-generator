@@ -4,7 +4,7 @@ import { colorsCalculate } from './utils/colorsCalculate';
 import ColorPalette from './ColorPalette';
 
 const App = () => {
-  const primary = colorsCalculate();
+  const palette = colorsCalculate();
 
   return (
     <div className="App">
@@ -18,7 +18,7 @@ const App = () => {
         >
           Hold your colors
         </a>
-        <ColorPalette color={primary} />
+        <ColorPalette palette={palette} />
       </header>
     </div>
   );

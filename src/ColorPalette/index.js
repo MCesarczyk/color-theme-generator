@@ -1,10 +1,12 @@
 import { Badge, BadgesList, Wrapper } from "./styled";
 
-const ColorPalette = ({ color }) => {
+const ColorPalette = ({ palette }) => {
     return (
         <Wrapper>
             <BadgesList>
-                <Badge color={color}>{color}</Badge>
+                {palette && palette.map(color => (
+                    <Badge color={color}>{color}</Badge>
+                ))}
             </BadgesList>
         </Wrapper>
     )

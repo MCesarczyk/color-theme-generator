@@ -29,17 +29,16 @@ export const colorsCalculate = () => {
     const rgb = hexToRgb(primary);
     console.log(`primaryRgb: ${rgb}`);
 
-    for (let i = 0; i <= 2; i++) {
-        console.log(`${Object.values(rgb)[i] * colors.primary6[i]}`);
-    };
-
-    Object.values(colors).forEach((color, index) => {
+    let palette = [];
+    Object.values(colors).forEach(color => {
+        let array = [];
         for (let i = 0; i <= 2; i++) {
-            console.log(`primary${index+1} - ${Object.values(rgb)[i] * color[i]}`);
+            const element = JSON.parse((Object.values(rgb)[i] * color[i]).toFixed(0));
+            array.push(element);
         };
+        const rgbValue = `rgb(${array.join()})`;
+        palette.push(rgbValue);
     });
 
-
-
-    return primary;
+    return palette;
 };
