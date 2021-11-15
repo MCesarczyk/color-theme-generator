@@ -24,21 +24,21 @@ export const colorsCalculate = () => {
     const rgb = hexToRgb(primary);
     console.log(`primaryRgb: ${rgb}`);
 
-    const rgbToHex = (r, g, b) => '#' + [r, g, b]
-        .map(x => x.toString(16).padStart(2, '0')).join('');
+    // const rgbToHex = (r, g, b) => '#' + [r, g, b]
+    //     .map(x => x.toString(16).padStart(2, '0')).join('');
 
-    const hex = rgbToHex(50, 130, 200);
+    // const hex = rgbToHex(50, 130, 200);
 
-    const invertHexColor = (hex) => {
-        var color = hex;
-        color = color.substring(1); // remove #
-        color = parseInt(color, 16); // convert to integer
-        color = 0xFFFFFF ^ color; // invert three bytes
-        color = color.toString(16); // convert to hex
-        color = ("000000" + color).slice(-6); // pad with leading zeros
-        color = "#" + color; // prepend #
-        return color;
-    }
+    // const invertHexColor = (hex) => {
+    //     var color = hex;
+    //     color = color.substring(1); // remove #
+    //     color = parseInt(color, 16); // convert to integer
+    //     color = 0xFFFFFF ^ color; // invert three bytes
+    //     color = color.toString(16); // convert to hex
+    //     color = ("000000" + color).slice(-6); // pad with leading zeros
+    //     color = "#" + color; // prepend #
+    //     return color;
+    // }
 
     let palette = [];
     Object.values(colors).forEach(color => {
@@ -47,12 +47,10 @@ export const colorsCalculate = () => {
             const element = JSON.parse((Object.values(rgb)[i] * color[i]).toFixed(0));
             array.push(element);
         };
-        const rgbValue = `rgb(${array.join()})`;
+        // const rgbValue = `rgb(${array.join()})`;
         const hex = `#${(array).map(x => x.toString(16).padStart(2, '0')).join('')}`;
         palette.push(hex);
     });
-
-
 
     return palette;
 };
