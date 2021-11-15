@@ -2,7 +2,7 @@ export const colorsCalculate = () => {
     const primary = '#3282c8';
     console.log(`primary: ${primary}`);
 
-    const colors = {
+    const pattern = {
         primary1: [4.8, 1.923076923, 1.275],
         primary2: [4.44, 1.853846154, 1.25],
         primary3: [3.46, 1.646153846, 1.185],
@@ -24,33 +24,22 @@ export const colorsCalculate = () => {
     const rgb = hexToRgb(primary);
     console.log(`primaryRgb: ${rgb}`);
 
-    // const rgbToHex = (r, g, b) => '#' + [r, g, b]
-    //     .map(x => x.toString(16).padStart(2, '0')).join('');
-
-    // const hex = rgbToHex(50, 130, 200);
-
-    // const invertHexColor = (hex) => {
-    //     var color = hex;
-    //     color = color.substring(1); // remove #
-    //     color = parseInt(color, 16); // convert to integer
-    //     color = 0xFFFFFF ^ color; // invert three bytes
-    //     color = color.toString(16); // convert to hex
-    //     color = ("000000" + color).slice(-6); // pad with leading zeros
-    //     color = "#" + color; // prepend #
-    //     return color;
-    // }
-
-    let palette = [];
-    Object.values(colors).forEach(color => {
-        let array = [];
+    let colors = [];
+    let contrasts = [];
+    Object.values(pattern).forEach(color => {
+        let colorsArray = [];
+        let contrastsArray = [];
         for (let i = 0; i <= 2; i++) {
             const element = JSON.parse((Object.values(rgb)[i] * color[i]).toFixed(0));
-            array.push(element);
+            colorsArray.push(element);
+            contrastsArray.push(255 - element);
+            console.log(contrastsArray);
         };
-        // const rgbValue = `rgb(${array.join()})`;
-        const hex = `#${(array).map(x => x.toString(16).padStart(2, '0')).join('')}`;
-        palette.push(hex);
+        const hex = `#${(colorsArray).map(x => x.toString(16).padStart(2, '0')).join('')}`;
+        const oppositeHex = `#${(contrastsArray).map(x => x.toString(16).padStart(2, '0')).join('')}`;
+        colors.push(hex);
+        contrasts.push(oppositeHex);
     });
 
-    return palette;
+    return colors;
 };
