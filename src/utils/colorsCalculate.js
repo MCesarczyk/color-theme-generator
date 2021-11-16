@@ -49,7 +49,6 @@ export const colorsCalculate = () => {
     };
 
     const palette = paletteBuilder(primary);
-    console.log(palette);
 
-    // return palette;
+    return palette;
 };
