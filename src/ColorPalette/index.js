@@ -5,7 +5,7 @@ const ColorPalette = ({ palette }) => {
         <Wrapper>
             <BadgesList>
                 {palette && palette.map(color => (
-                    <Badge key={color} color={color}>{color}</Badge>
+                    <Badge key={color} background={color}>{color}</Badge>
                 ))}
             </BadgesList>
         </Wrapper>

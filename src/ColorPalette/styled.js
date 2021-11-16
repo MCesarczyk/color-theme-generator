@@ -16,10 +16,11 @@ export const BadgesList = styled.ul`
 
 export const Badge = styled.li.attrs(props => ({
     type: 'text',
-    size: props.color || '#282c34',
+    color: props.color || '#fff',
+    background: props.background || '#282c34',
 }))`
-    color: #fff;
-    background-color: ${props => props.color};
+    color: ${props => props.color};
+    background-color: ${props => props.background};
     padding: 6px 24px;
     border-radius: 6px;
     margin: 6px;
