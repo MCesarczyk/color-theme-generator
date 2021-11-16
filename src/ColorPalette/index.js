@@ -1,9 +1,14 @@
+import { useEffect } from "react";
 import { Badge, BadgesList, Wrapper } from "./styled";
 
 const ColorPalette = ({ palette }) => {
     const matrix = Object.entries(palette);
     const backgrounds = Object.values(Object.fromEntries(matrix.filter(entry => entry.toString().includes('primary'))));
     const colors = Object.values(Object.fromEntries(matrix.filter(entry => entry.toString().includes('complementary'))));
+
+    useEffect(() => {
+        console.log(palette);
+    }, [palette]);
 
     return (
         <Wrapper>
