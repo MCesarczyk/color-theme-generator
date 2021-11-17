@@ -4,7 +4,7 @@ import { FooterLabel, FooterLink } from "./styled";
 const Footer = () => (
   <Space footer>
   <FooterLabel>
-    powered by:
+    inspired by:
   </FooterLabel>
     <FooterLink
       className="App-link"
