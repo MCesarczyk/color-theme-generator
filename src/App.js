@@ -6,7 +6,8 @@ import { ReactComponent as ReactLogo } from "./assets/reactLogo.svg";
 import { colorsCalculate } from './utils/colorsCalculate';
 import { debounce } from './utils/debounce';
 import { Wrapper } from './shared/Wrapper';
-import { Header } from './shared/Header';
+import Headline from './shared/Headline';
+import { Body } from './shared/Body';
 import Footer from './shared/Footer';
 
 const App = () => {
@@ -23,20 +24,22 @@ const App = () => {
 
   return (
     <Wrapper>
-      <Header>
+      <Body>
         <Logo color={primary} >
           <ReactLogo height="100%" />
         </Logo>
-
-        Choose your primary color
-        <p>{primary}</p>
+        <Headline
+          title="Choose your primary color"
+          value={primary}
+          >
+        </Headline>
         <Input
           value={primary}
           onChange={e => handleChange(e.target.value)}
         />
         <ColorPalette palette={palette} />
         <Footer />
-      </Header>
+      </Body>
     </Wrapper>
   );
 }

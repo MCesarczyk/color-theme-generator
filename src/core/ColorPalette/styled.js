@@ -24,4 +24,9 @@ export const Badge = styled.li.attrs(props => ({
     padding: 6px 24px;
     border-radius: 6px;
     margin: 6px;
+    font-size: 24px;
+
+    @media (max-width: 576px) {
+        font-size: 20px;
+    }
 `;
