@@ -1,11 +1,13 @@
 import { useCallback, useState } from 'react';
-import ColorPalette from './ColorPalette';
-import Input from './Input';
-import { Logo } from './Logo';
+import ColorPalette from './core/ColorPalette';
+import Input from './core/Input';
+import { Logo } from './shared/Logo';
 import { ReactComponent as ReactLogo } from "./assets/reactLogo.svg";
 import { colorsCalculate } from './utils/colorsCalculate';
-import { debounce } from './helpers/debounce';
-import './App.css';
+import { debounce } from './utils/debounce';
+import { Wrapper } from './shared/Wrapper';
+import { Header } from './shared/Header';
+import Footer from './shared/Footer';
 
 const App = () => {
   const [primary, setPrimary] = useState('#3282c8');
@@ -20,8 +22,8 @@ const App = () => {
   );
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <Wrapper>
+      <Header>
         <Logo color={primary} >
           <ReactLogo height="100%" />
         </Logo>
@@ -33,16 +35,9 @@ const App = () => {
           onChange={e => handleChange(e.target.value)}
         />
         <ColorPalette palette={palette} />
-        <a
-          className="App-link"
-          href="https://ant.design/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Ant Design
-        </a>
-      </header>
-    </div>
+        <Footer />
+      </Header>
+    </Wrapper>
   );
 }
 
