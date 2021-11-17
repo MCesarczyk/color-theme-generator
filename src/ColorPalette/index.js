@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Badge, BadgesList, Wrapper } from "./styled";
 
 const ColorPalette = ({ palette }) => {
