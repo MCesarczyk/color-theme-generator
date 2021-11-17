@@ -3,20 +3,11 @@ import './App.css';
 import { colorsCalculate } from './utils/colorsCalculate';
 import ColorPalette from './ColorPalette';
 import Input from './Input';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const App = () => {
-  const [value, setValue] = useState('');
   const [primary, setPrimary] = useState('#3282c8');
   const palette = colorsCalculate(primary);
-
-  const handleChange = useCallback(({ target }) => {
-    const payload = target.value;
-
-    setValue(payload);
-
-    payload.length === 7 && setPrimary(payload);
-  }, [value]);
 
   useEffect(() => {
     console.log(`Primary: ${primary}`);
@@ -29,8 +20,8 @@ const App = () => {
 
         Choose your primary color
         <Input
-          value={value}
-          onChange={handleChange}
+          value={primary}
+          onChange={e => setPrimary(e.target.value)}
         />
         <ColorPalette palette={palette} />
         <a

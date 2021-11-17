@@ -6,15 +6,11 @@ const ColorPalette = ({ palette }) => {
     const backgrounds = Object.values(Object.fromEntries(matrix.filter(entry => entry.toString().includes('primary'))));
     const colors = Object.values(Object.fromEntries(matrix.filter(entry => entry.toString().includes('complementary'))));
 
-    useEffect(() => {
-        console.log(palette);
-    }, [palette]);
-
     return (
         <Wrapper>
             <BadgesList>
                 {palette && backgrounds.map((value, index) => (
-                    <Badge key={value} color={colors[index]} background={value}>{value}</Badge>
+                    <Badge key={value+index} color={colors[index]} background={value}>{value}</Badge>
                 ))}
             </BadgesList>
         </Wrapper>

@@ -30,7 +30,7 @@ export const colorsCalculate = (primary) => {
             for (let i = 0; i <= 2; i++) {
                 const element = JSON.parse((Object.values(rgb)[i] * color[i]).toFixed(0));
                     colorsArray.push(element <= 255 ? element : 255);
-                contrastsArray.push(255 - element);
+                contrastsArray.push(element <= 255 ? 255 - element : 0);
             };
             const hex = `#${(colorsArray).map(x => x.toString(16).padStart(2, '0')).join('')}`;
             const complementaryHex = `#${(contrastsArray).map(x => x.toString(16).padStart(2, '0')).join('')}`;
@@ -42,8 +42,6 @@ export const colorsCalculate = (primary) => {
         });
         colors = colors.reduce((obj, cur) => ({ ...obj, [cur.name]: cur.color }), {});
         complementarities = complementarities.reduce((obj, cur) => ({ ...obj, [cur.name]: cur.color }), {});
-
-        console.log(colorsRgb);
 
         return {
             ...colors,
