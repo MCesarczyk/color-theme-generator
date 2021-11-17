@@ -3,7 +3,7 @@ import ColorPalette from './core/ColorPalette';
 import Input from './core/Input';
 import { Logo } from './shared/Logo';
 import { ReactComponent as ReactLogo } from "./assets/reactLogo.svg";
-import { colorsCalculate } from './utils/colorsCalculate';
+import { calculateColors } from './utils/calculateColors';
 import { debounce } from './utils/debounce';
 import { Wrapper } from './shared/Wrapper';
 import Headline from './shared/Headline';
@@ -12,7 +12,8 @@ import Footer from './shared/Footer';
 
 const App = () => {
   const [primary, setPrimary] = useState('#3282c8');
-  const palette = colorsCalculate(primary);
+  const prefix = "@ant-primary-";
+  const palette = calculateColors(primary);
 
   const handleChange = useCallback(
     debounce(value => {
@@ -37,7 +38,10 @@ const App = () => {
           value={primary}
           onChange={e => handleChange(e.target.value)}
         />
-        <ColorPalette palette={palette} />
+        <ColorPalette
+          palette={palette}
+          prefix={prefix}
+        />
         <Footer />
       </Body>
     </Wrapper>

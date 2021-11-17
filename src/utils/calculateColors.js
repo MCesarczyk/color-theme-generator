@@ -1,4 +1,4 @@
-export const colorsCalculate = (primary) => {
+export const calculateColors = (primary, prefix) => {
     const pattern = {
         1: [4.8, 1.923076923, 1.275],
         2: [4.44, 1.853846154, 1.25],
@@ -36,9 +36,9 @@ export const colorsCalculate = (primary) => {
             const complementaryHex = `#${(contrastsArray).map(x => x.toString(16).padStart(2, '0')).join('')}`;
 
             const id = Object.keys(pattern)[index];
-            colors.push({ name: `--ant-primary-${id}`, color: hex });
-            colorsRgb.push({ name: `--ant-primary-${id}`, color: colorsArray });
-            complementarities.push({ name: `--ant-complementary-${id}`, color: complementaryHex });
+            colors.push({ name: `@ant-primary-${id}`, color: hex });
+            colorsRgb.push({ name: `@ant-primary-${id}`, color: colorsArray });
+            complementarities.push({ name: `@ant-complementary-${id}`, color: complementaryHex });
         });
         colors = colors.reduce((obj, cur) => ({ ...obj, [cur.name]: cur.color }), {});
         complementarities = complementarities.reduce((obj, cur) => ({ ...obj, [cur.name]: cur.color }), {});

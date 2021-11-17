@@ -1,6 +1,6 @@
-import { Badge, BadgesList, Wrapper } from "./styled";
+import { Badge, BadgesList, Label, Wrapper } from "./styled";
 
-const ColorPalette = ({ palette }) => {
+const ColorPalette = ({ palette, prefix }) => {
     const matrix = Object.entries(palette);
     const backgrounds = Object.values(Object.fromEntries(matrix.filter(entry => entry.toString().includes('primary'))));
     const colors = Object.values(Object.fromEntries(matrix.filter(entry => entry.toString().includes('complementary'))));
@@ -9,7 +9,12 @@ const ColorPalette = ({ palette }) => {
         <Wrapper>
             <BadgesList>
                 {palette && backgrounds.map((value, index) => (
-                    <Badge key={value+index} color={colors[index]} background={value}>{value}</Badge>
+                    <Badge key={value + index} color={colors[index]} background={value}>
+                        <Label>
+                            {prefix + (index + 1)}{" : "}
+                        </Label>
+                        {value}
+                    </Badge>
                 ))}
             </BadgesList>
         </Wrapper>

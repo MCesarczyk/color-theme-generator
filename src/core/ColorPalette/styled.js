@@ -30,3 +30,11 @@ export const Badge = styled.li.attrs(props => ({
         font-size: 20px;
     }
 `;
+
+export const Label = styled.span`
+    margin-right: 1rem;
+
+    @media (max-width: 576px) {
+        display: none;
+    }
+`;
