@@ -43,7 +43,7 @@ export const ProgressInner = styled.div`
 `
 
 export const ProgressBar = styled.div`
-    width: 30%;
+    width: ${props => props.progress};
     height: 8px;
     position: relative;
     background-color: crimson;
