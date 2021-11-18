@@ -1,14 +1,15 @@
 import { useEffect, useCallback, useState } from 'react';
 import ColorPalette from './core/ColorPalette';
 import Input from './core/Input';
-import { Logo } from './shared/Logo';
-import { ReactComponent as ReactLogo } from "./assets/reactLogo.svg";
-import { calculateColors } from './utils/calculateColors';
-import { debounce } from './utils/debounce';
-import { Wrapper } from './shared/Wrapper';
+import Loader from './shared/Loader';
 import Headline from './shared/Headline';
-import { Body } from './shared/Body';
 import Footer from './shared/Footer';
+import { Wrapper } from './shared/Wrapper';
+import { Body } from './shared/Body';
+import { Logo } from './shared/Logo';
+import { debounce } from './utils/debounce';
+import { calculateColors } from './utils/calculateColors';
+import { ReactComponent as ReactLogo } from "./assets/reactLogo.svg";
 
 const App = () => {
   const [state, setState] = useState('loading');
@@ -40,7 +41,7 @@ const App = () => {
 
   return (
     <Wrapper>
-      {state === 'loading' && <div style={{ margin: 'auto', marginTop: '50vh', color: '#fff', fontSize: '48px' }}>Loading...</div>}
+      {state === 'loading' && <Loader message='Loading...' />}
       {state === 'success' && <Body>
         <Logo color={primary} >
           <ReactLogo height="100%" />
