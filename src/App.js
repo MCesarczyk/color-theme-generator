@@ -1,4 +1,4 @@
-import { useEffect, useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import ColorPalette from './core/ColorPalette';
 import Input from './core/Input';
 import Loader from './shared/Loader';
@@ -26,22 +26,12 @@ const App = () => {
   );
 
   const loadApp = () => {
-    setTimeout(() => {
-      setState('success');
-    }, 2_000);
+    setState('success');
   };
-
-  useEffect(() => {
-    console.log(`State: ${state}`);
-  }, [state]);
-
-  useEffect(() => {
-    loadApp();
-  }, []);
 
   return (
     <Wrapper>
-      {state === 'loading' && <Loader message='Loading...' />}
+      {state === 'loading' && <Loader message='Loading...' onFinish={loadApp} />}
       {state === 'success' && <Body>
         <Logo color={primary} >
           <ReactLogo height="100%" />
