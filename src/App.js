@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useEffect, useCallback, useState } from 'react';
 import ColorPalette from './core/ColorPalette';
 import Input from './core/Input';
 import { Logo } from './shared/Logo';
@@ -11,6 +11,7 @@ import { Body } from './shared/Body';
 import Footer from './shared/Footer';
 
 const App = () => {
+  const [state, setState] = useState('loading');
   const [primary, setPrimary] = useState('#3282c8');
   const prefix = "@ant-primary-";
   const palette = calculateColors(primary);
@@ -18,21 +19,36 @@ const App = () => {
   const handleChange = useCallback(
     debounce(value => {
       setPrimary(value);
-      console.log(value);
+      console.log(`Primary color: ${value}`);
     }, 500),
     []
   );
 
+  const loadApp = () => {
+    setTimeout(() => {
+      setState('success');
+    }, 2_000);
+  };
+
+  useEffect(() => {
+    console.log(`State: ${state}`);
+  }, [state]);
+
+  useEffect(() => {
+    loadApp();
+  }, []);
+
   return (
     <Wrapper>
-      <Body>
+      {state === 'loading' && <div style={{ margin: 'auto', marginTop: '50vh', color: '#fff', fontSize: '48px' }}>Loading...</div>}
+      {state === 'success' && <Body>
         <Logo color={primary} >
           <ReactLogo height="100%" />
         </Logo>
         <Headline
           title="Choose your primary color"
           value={primary}
-          >
+        >
         </Headline>
         <Input
           value={primary}
@@ -43,7 +59,7 @@ const App = () => {
           prefix={prefix}
         />
         <Footer />
-      </Body>
+      </Body>}
     </Wrapper>
   );
 }
