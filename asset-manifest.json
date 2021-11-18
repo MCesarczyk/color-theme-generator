@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.js": "/color-theme-generator/static/js/main.60246894.chunk.js",
+    "main.js.map": "/color-theme-generator/static/js/main.60246894.chunk.js.map",
+    "runtime-main.js": "/color-theme-generator/static/js/runtime-main.100e184c.js",
+    "runtime-main.js.map": "/color-theme-generator/static/js/runtime-main.100e184c.js.map",
+    "static/js/2.bc6597e2.chunk.js": "/color-theme-generator/static/js/2.bc6597e2.chunk.js",
+    "static/js/2.bc6597e2.chunk.js.map": "/color-theme-generator/static/js/2.bc6597e2.chunk.js.map",
+    "static/js/3.acf7bf9b.chunk.js": "/color-theme-generator/static/js/3.acf7bf9b.chunk.js",
+    "static/js/3.acf7bf9b.chunk.js.map": "/color-theme-generator/static/js/3.acf7bf9b.chunk.js.map",
+    "index.html": "/color-theme-generator/index.html",
+    "static/js/2.bc6597e2.chunk.js.LICENSE.txt": "/color-theme-generator/static/js/2.bc6597e2.chunk.js.LICENSE.txt",
+    "static/media/reactLogo.b12adf8c.svg": "/color-theme-generator/static/media/reactLogo.b12adf8c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.100e184c.js",
+    "static/js/2.bc6597e2.chunk.js",
+    "static/js/main.60246894.chunk.js"
+  ]
+}
