@@ -14,7 +14,7 @@ const Loader = ({ message, onFinish }) => {
                 onFinish();
             }
         }, 50);
-    }, []);
+    }, [onFinish]);
 
     const percentage = `${(progress * 100).toFixed(0)}%`;
 

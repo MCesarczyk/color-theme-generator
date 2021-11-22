@@ -17,6 +17,7 @@ const App = () => {
   const prefix = "@ant-primary-";
   const palette = calculateColors(primary);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleChange = useCallback(
     debounce(value => {
       setPrimary(value);
